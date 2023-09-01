@@ -6,7 +6,7 @@
 
 	<div class="boxes">
 		<div class="box box2">
-			<i class="uil uil-transaction></i>
+			<i class="uil uil-transaction"></i>
 			<span class="text">Transactions</span>
 			<span class="number">678</span>
 		</div>

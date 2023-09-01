@@ -1,0 +1,12 @@
+RewriteEngine On
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+RewriteRule ^(.*)$ index.php/$1 [L]
+
+<Files ~ "^.*\.([Hh][Tt][Aa])|.*sqlite3">
+order allow,deny
+deny from all
+satisfy all
+</Files>

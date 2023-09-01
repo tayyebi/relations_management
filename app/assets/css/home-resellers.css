@@ -1,0 +1,42 @@
+.cards-parrent {
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 10px;
+}
+.cards {
+  border-radius: 5px;
+  box-shadow: 10px 10px 10px #4f4d4b;
+  background-color: #446f53;
+  grid-column: span 6 / span 6;
+}
+.cards > h6 {
+  color: #dad7cd;
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: 100;
+  margin: 0.7rem 0 0 0;
+}
+.cards > span {
+  display: flex;
+  justify-items: center;
+  justify-content: space-between;
+  padding: 0 1rem;
+  color: #dad7cd;
+  margin-top: 0.5rem;
+}
+.cards > span > span > svg {
+  width: 1.7rem;
+  margin-left: 1rem;
+}
+
+.cards p {
+  color: #dad7cd;
+  font-size: 1rem;
+}
+
+@media screen and (max-width: 1280px) {
+  .cards {
+    grid-column: span 12 / span 12;
+  }
+}

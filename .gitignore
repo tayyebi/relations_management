@@ -1,0 +1,20 @@
+db.sqlite
+app/core/Config.php
+<<<<<<< HEAD
+.vscode
+=======
+.vscode
+download/*.*
+!1c9a3a77b1c842fb.jpg_20180122172355_600x600.jpg
+!7b37339eca5c0de5.jpg_20200605155830_600x600.jpg
+!757MT.png
+!Aufine-1200r24-Af11-New-Desiged-Truck-Tire-for-Middle-Distance.webp
+!aufine-adr3-logo-500x500.jpg
+!Aufine-Ael2-315-80r22-5-All-Position-High-Performance-315-80-Commercial-Tire-From-Thailand.webp
+!Aufine-Af177-315-80r22-5-Hot-Sale-Truck-Tires-with-Fuel-Efficient.webp
+!aufine_logo.png
+!bb693880da8572bd.jpg_20200609170812_600x600.jpg
+!ROCK515.png
+!ROCK525.png
+
+>>>>>>> 2410a16 (first commit)

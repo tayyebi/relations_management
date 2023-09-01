@@ -1,0 +1,19 @@
+<?php
+
+/**
+ * 
+ * App configuration
+ * 
+ */
+
+ // Application name
+define('_AppName', 'گردرگ');
+
+// Default URL (For redirects and etc.)
+define('_Root', 'http://FRONT_SERVER_NAME:80/');
+
+// Run application in debug mode
+define('_Debug', false);
+
+// Administrator password (root)
+define ('_RootPassword', 'SAFE_PASSWORD_HERE');

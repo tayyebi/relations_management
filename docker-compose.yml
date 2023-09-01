@@ -1,0 +1,18 @@
+﻿version: '3'
+services:
+  relations:
+    build: .
+    container_name: relations
+    hostname: relations
+    ports:
+      - "8000:80"
+    networks:
+      - gordarg
+    restart: unless-stopped
+    volumes:
+      - ./:/var/www/html
+      - "/etc/timezone:/etc/timezone:ro"
+      - "/etc/localtime:/etc/localtime:ro"
+networks:
+  gordarg:
+    external: true

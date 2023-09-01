@@ -1,8 +1,8 @@
 <?php
 
-class DashboardController extends Controller {
+class DashboardController extends Controller
+{
 
-<<<<<<< HEAD
 	public $uow;
 
 	function __construct()
@@ -10,13 +10,12 @@ class DashboardController extends Controller {
 		$uow = new UnitOfWork();
 	}
 
-=======
->>>>>>> 2410a16 (first commit)
-	function Auth() {
+	function Auth()
+	{
 		if (
 			isset($_SERVER['PHP_AUTH_USER'])
 			and ($_SERVER['PHP_AUTH_USER'] == 'root'
-			and ($_SERVER['PHP_AUTH_PW'] == _RootPassword))
+				and ($_SERVER['PHP_AUTH_PW'] == _RootPassword))
 		)
 			return;
 
@@ -25,84 +24,70 @@ class DashboardController extends Controller {
 		exit;
 	}
 
-    function IndexGET() {
-<<<<<<< HEAD
-	$this->Auth();
-=======
+	function IndexGET()
+	{
 		$this->Auth();
->>>>>>> 2410a16 (first commit)
-        $this->Render('Index', [
-            'Title' => _AppName . ' | Dashboard'
-        ]);
-    }
+		$this->Render('Index', [
+			'Title' => _AppName . ' | Dashboard'
+		]);
+	}
 
-	function ContentsGET() {
+	function ContentsGET()
+	{
 		$this->Auth();
 
 		$uow = new UnitOfWork();
 		$rows = $uow->selectAllContents();
 
-        $this->Render('Contents', [
-            'Title' => _AppName . ' | Content',
+		$this->Render('Contents', [
+			'Title' => _AppName . ' | Content',
 			'Rows' => $rows
-        ]);
-    }
+		]);
+	}
 
-	function ContentGET($id = null) {
+	function TransactionGET($id = null)
+	{
 		$this->Auth();
-		
-<<<<<<< HEAD
+
 		if ($id)
 			$row = $this->uow->selectContentById($id);
-=======
-		$uow = new UnitOfWork();
-		if ($id)
-			$row = $uow->selectContentById($id);
->>>>>>> 2410a16 (first commit)
 
-        $this->Render('Content', [
-            'Title' => _AppName . ' | Post',
+		$this->Render('Content', [
+			'Title' => _AppName . ' | Post',
 			'Row' => $row
-        ]);
-    }
+		]);
+	}
 
-	function ContentPOST() {
+	function TransactionPOST()
+	{
 		$this->Auth();
-		
+
 		$uow = new UnitOfWork();
 
-		if (isset($_POST['delete']) && isset($_POST['id']))
-		{
+		if (isset($_POST['delete']) && isset($_POST['id'])) {
 			$uow->deleteContentById($_POST['id']);
-		}
-		else if (!isset($_POST['delete']) && isset($_POST['id']))
-		{
+		} else if (!isset($_POST['delete']) && isset($_POST['id'])) {
 			$uow->updateContentById([
 				'ID' => $_POST['id'],
 				'TITLE' => $_POST['title'],
 				'BODY' => $_POST['body'],
 				'DATE' => $_POST['date']
 			]);
-		}
-		else
-		{	
+		} else {
 			$uow->insertContent([
 				'TITLE' => $_POST['title'],
 				'BODY' => $_POST['body'],
 				'DATE' => $_POST['date']
 			]);
 		}
-        $this->RedirectResponse(_Root . 'Dashboard/Contents');
-    }
+		$this->RedirectResponse(_Root . 'Dashboard/Contents');
+	}
 
-	function LogoutGET() {
+	function LogoutGET()
+	{
 		$this->Render('Logout', null, true);
 		unset($_SERVER['PHP_AUTH_USER']);
 		$this->Auth();
 	}
 
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 2410a16 (first commit)

@@ -1,15 +1,11 @@
 <!DOCTYPE html>
-<!--=== Coding by CodingLab | www.codinglabweb.com === -->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!----======== CSS ======== -->
+
     <link rel="stylesheet" href="<?php echo _Root ?>app/assets/css/dashboard.css">
-     
-    <!----===== Iconscout CSS ===== -->
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
 
     <title><?php echo $Data['Title'] ?></title> 
@@ -18,14 +14,10 @@
     <nav>
         <div class="logo-name">
             <div class="logo-image">
-<<<<<<< HEAD
                 <img src="https://gordarg.com/img/logo/Colorful.svg" alt="">
-=======
-                <img src="images/logo.png" alt="">
->>>>>>> 2410a16 (first commit)
             </div>
 
-            <span class="logo_name">Administrators</span>
+            <span class="logo_name"><?php echo _AppName?></span>
         </div>
 
         <div class="menu-items">
@@ -34,13 +26,25 @@
                     <i class="uil uil-estate"></i>
                     <span class="link-name">Dashboard</span>
                 </a></li>
-                <li><a href="<?php echo _Root ?>Dashboard/Contents">
-                    <i class="uil uil-files-landscapes"></i>
-                    <span class="link-name">Contents</span>
-                </a></li>
-                <li><a href="<?php echo _Root ?>Dashboard/Content">
+
+                <li><a href="<?php echo _Root ?>Dashboard/Transaction">
                     <i class="uil uil-paragraph"></i>
-                    <span class="link-name">New Content</span>
+                    <span class="link-name">New Transaction</span>
+                </a></li>
+
+                <li><a href="<?php echo _Root ?>Dashboard/Transactions">
+                    <i class="uil uil-files-landscapes"></i>
+                    <span class="link-name">Transactions</span>
+                </a></li>
+                
+                <li><a href="<?php echo _Root ?>Dashboard/Accounts">
+                    <i class="uil uil-paragraph"></i>
+                    <span class="link-name">New Transaction</span>
+                </a></li>
+
+                <li><a href="<?php echo _Root ?>Dashboard/Account">
+                    <i class="uil uil-files-landscapes"></i>
+                    <span class="link-name">New Account</span>
                 </a></li>
             </ul>
             

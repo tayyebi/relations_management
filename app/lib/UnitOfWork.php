@@ -1,62 +1,51 @@
 <?php
 
-class UnitOfWork {
+class UnitOfWork
+{
 
 	private $db;
 
-	function preventInjection($input) {
+	function preventInjection($input)
+	{
 		$input = str_replace('\'', '', $input);
 		$input = str_replace('`', '', $input);
 		return $input;
 	}
 
-	function __construct() {
+	function __construct()
+	{
 		$this->db = new MyDB();
-		if(!$this->db)
+		if (!$this->db)
 			throw new Exception($this->db->lastErrorMsg());
 		return $this->db;
 	}
 
-	function __destruct() {
+	function __destruct()
+	{
 		$this->db->close();
 	}
 
-<<<<<<< HEAD
-=======
-	function init() {
-		  $sql =<<<EOF
-			CREATE TABLE CONTENTS
-			(ID INTEGER PRIMARY KEY AUTOINCREMENT,
-			TITLE           TEXT    NOT NULL,
-			DATE            TEXT    NOT NULL,
-			BODY        	TEXT	);
-		EOF;
-
-		$ret = $this->db->exec($sql);
-		if(!$ret)
-			throw new Exception($this->db->lastErrorMsg());
-	}
-
->>>>>>> 2410a16 (first commit)
-	function selectAllContents() {
-		 $sql =<<<EOF
-			SELECT * FROM CONTENTS ORDER BY `DATE` DESC;
+	function selectAllTransactions()
+	{
+		$sql = <<<EOF
+			SELECT * FROM TRANSACTIONS ORDER BY `DATE` DESC;
 		EOF;
 
 		$output = [];
 
 		$ret = $this->db->query($sql);
-		while($row = $ret->fetchArray(SQLITE3_ASSOC))
+		while ($row = $ret->fetchArray(SQLITE3_ASSOC))
 			array_push($output, $row);
 
 		return $output;
 	}
 
-	function selectContentById($id) {
+	function selectTransactionById($id)
+	{
 		$id = $this->preventInjection($id);
 
-		$sql =<<<EOF
-			SELECT * FROM CONTENTS WHERE `ID`=$id;
+		$sql = <<<EOF
+			SELECT * FROM TRANSACTIONS WHERE `ID`=$id;
 		EOF;
 
 		$ret = $this->db->query($sql);
@@ -65,50 +54,53 @@ class UnitOfWork {
 		return $output;
 	}
 
-	function insertContent($inputs) {
-		foreach ($inputs as $key=>$value)
+	function insertTransactions($inputs)
+	{
+		foreach ($inputs as $key => $value)
 			$this->preventInjection($value);
 
 		$title = $this->preventInjection($inputs['TITLE']);
 		$body = $this->preventInjection($inputs['BODY']);
 		$date = $this->preventInjection($inputs['DATE']);
 
-		$sql =<<<EOF
-			INSERT INTO CONTENTS (TITLE,DATE,BODY)
+		$sql = <<<EOF
+			INSERT INTO TRANSACTIONS (TITLE,DATE,BODY)
 			VALUES ('$title', '$date', '$body');
 		EOF;
 
 		$ret = $this->db->exec($sql);
-		if(!$ret)
+		if (!$ret)
 			throw new Exception($this->db->lastErrorMsg());
 	}
 
-	function updateContentById($inputs) {
+	function updateTransactionById($inputs)
+	{
 
 		$id = $this->preventInjection($inputs['ID']);
 		$title = $this->preventInjection($inputs['TITLE']);
 		$body = $this->preventInjection($inputs['BODY']);
 		$date = $this->preventInjection($inputs['DATE']);
 
-		$sql =<<<EOF
-			UPDATE CONTENTS SET `TITLE`='$title', `DATE`='$date', `BODY`='$body'
+		$sql = <<<EOF
+			UPDATE TRANSACTIONS SET `TITLE`='$title', `DATE`='$date', `BODY`='$body'
 			WHERE `ID`=$id
 		EOF;
 
 		$ret = $this->db->exec($sql);
-		if(!$ret)
+		if (!$ret)
 			throw new Exception($this->db->lastErrorMsg());
 	}
 
-	function deleteContentById($id) {
+	function deleteTransactionById($id)
+	{
 		$id = $this->preventInjection($id);
 
-		$sql =<<<EOF
-			DELETE FROM CONTENTS WHERE `ID`=$id
+		$sql = <<<EOF
+			DELETE FROM TRANSACTIONS WHERE `ID`=$id
 		EOF;
 
 		$ret = $this->db->exec($sql);
-		if(!$ret)
+		if (!$ret)
 			throw new Exception($this->db->lastErrorMsg());
 	}
 }

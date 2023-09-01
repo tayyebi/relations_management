@@ -1,6 +1,6 @@
 # Home
 
-This is the main repository of TokanTire.com home website.
+Based on [php-mvc-blog](https://github.com/tayyebi/php-mvc-blog)
 
 # Environment Setup
 
@@ -13,3 +13,7 @@ sudo apt-get install php7.2-xml
 ```
 
 # Installation
+
+```
+docker-compose up -d
+```

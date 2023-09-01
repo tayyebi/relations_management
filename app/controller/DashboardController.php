@@ -32,15 +32,15 @@ class DashboardController extends Controller
 		]);
 	}
 
-	function ContentsGET()
+	function TransactionsGET()
 	{
 		$this->Auth();
 
 		$uow = new UnitOfWork();
-		$rows = $uow->selectAllContents();
+		$rows = $uow->selectAllTransactions();
 
-		$this->Render('Contents', [
-			'Title' => _AppName . ' | Content',
+		$this->Render('Transactions', [
+			'Title' => _AppName . ' | Transaction',
 			'Rows' => $rows
 		]);
 	}
@@ -50,9 +50,9 @@ class DashboardController extends Controller
 		$this->Auth();
 
 		if ($id)
-			$row = $this->uow->selectContentById($id);
+			$row = $this->uow->selectTransactionById($id);
 
-		$this->Render('Content', [
+		$this->Render('Transaction', [
 			'Title' => _AppName . ' | Post',
 			'Row' => $row
 		]);
@@ -65,22 +65,22 @@ class DashboardController extends Controller
 		$uow = new UnitOfWork();
 
 		if (isset($_POST['delete']) && isset($_POST['id'])) {
-			$uow->deleteContentById($_POST['id']);
+			$uow->deleteTransactionById($_POST['id']);
 		} else if (!isset($_POST['delete']) && isset($_POST['id'])) {
-			$uow->updateContentById([
+			$uow->updateTransactionById([
 				'ID' => $_POST['id'],
 				'TITLE' => $_POST['title'],
 				'BODY' => $_POST['body'],
 				'DATE' => $_POST['date']
 			]);
 		} else {
-			$uow->insertContent([
+			$uow->insertTransaction([
 				'TITLE' => $_POST['title'],
 				'BODY' => $_POST['body'],
 				'DATE' => $_POST['date']
 			]);
 		}
-		$this->RedirectResponse(_Root . 'Dashboard/Contents');
+		$this->RedirectResponse(_Root . 'Dashboard/Transactions');
 	}
 
 	function LogoutGET()

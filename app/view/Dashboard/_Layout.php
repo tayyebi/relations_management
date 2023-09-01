@@ -28,22 +28,22 @@
                 </a></li>
 
                 <li><a href="<?php echo _Root ?>Dashboard/Transaction">
-                    <i class="uil uil-paragraph"></i>
+                    <i class="uil uil-transaction"></i>
                     <span class="link-name">New Transaction</span>
                 </a></li>
 
                 <li><a href="<?php echo _Root ?>Dashboard/Transactions">
-                    <i class="uil uil-files-landscapes"></i>
+                    <i class="uil uil-history"></i>
                     <span class="link-name">Transactions</span>
                 </a></li>
                 
                 <li><a href="<?php echo _Root ?>Dashboard/Accounts">
-                    <i class="uil uil-paragraph"></i>
-                    <span class="link-name">New Transaction</span>
+                    <i class="uil uil-users-alt"></i>
+                    <span class="link-name">Accounts</span>
                 </a></li>
 
                 <li><a href="<?php echo _Root ?>Dashboard/Account">
-                    <i class="uil uil-files-landscapes"></i>
+                    <i class="uil uil-user"></i>
                     <span class="link-name">New Account</span>
                 </a></li>
             </ul>

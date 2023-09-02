@@ -13,17 +13,17 @@ $row = isset($Data['Row']) ? $Data['Row'] : null;
 		<form method="post">
 			<div>
 				<label for="amount">Amount<label>
-				<input name="amount" type="text" value="<?php echo $row ? $row['AMOUNT'] : '' ?>" />
+				<input name="amount" type="number" min="0" step=".01" value="<?php echo $row ? $row['AMOUNT'] : '' ?>" />
 			</div>
 
 			<div>
 				<label for="debit">Debit Account<label>
-				<input name="debit" type="text" value="<?php echo $row ? $row['DEBTI_ACCOUNT_ID'] : '' ?>" />
+				<input name="debit" type="text" value="<?php echo $row ? $row['DEBIT_ACCOUNT_ID'] : '' ?>" />
 			</div>
 
 			<div>
 				<label for="credit">Credit Account</label>
-				<textarea name="credit"><?php echo $row ? $row['CREDIT_ACCOUNT_ID'] : '' ?></textarea>
+				<input name="credit" type="text" value="<?php echo $row ? $row['CREDIT_ACCOUNT_ID'] : '' ?>" />
 			</div>
 
 			<div>

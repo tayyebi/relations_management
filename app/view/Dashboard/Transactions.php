@@ -13,7 +13,7 @@
 			foreach  ($Data['Rows']as $row)
 			{
 				$id = $row['ID'];
-				$value = $row['Date'];
+				$value = $row['DATE'];
 				echo '<a href="' . _Root . 'Dashboard/Transaction/' . $id . '" class="data-list">' . $value . '</a>';
 			}
 			?>
@@ -23,17 +23,27 @@
 			<?php
 			foreach  ($Data['Rows']as $row)
 			{
-				$value = $row['TITLE'];
+				$value = $row['DEBIT_ACCOUNT_ID'];
 				echo "<span class=\"data-list\">$value</span>";
 			}
 			?>
 		</div>
-		<div class="data email">
+		<div class="data names">
 			<span class="data-title">Credit</span>
 			<?php
 			foreach  ($Data['Rows']as $row)
 			{
-				$value = $row['DATE'];
+				$value = $row['CREDIT_ACCOUNT_ID'];
+				echo "<span class=\"data-list\">$value</span>";
+			}
+			?>
+		</div>
+		<div class="data names">
+			<span class="data-title">Notes</span>
+			<?php
+			foreach  ($Data['Rows']as $row)
+			{
+				$value = $row['NOTES'];
 				echo "<span class=\"data-list\">$value</span>";
 			}
 			?>

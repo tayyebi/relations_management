@@ -15,13 +15,12 @@ $row = isset($Data['Row']) ? $Data['Row'] : null;
 		</div>
 		<div class="box box1">
 			<i class="uil uil-minus-circle"></i>
-			<span class="text"><?php echo $row['DEBIT'] ?></span>
-			<span class="number">5,000</span>
+			<span class="text">Debit</span>
+			<span class="number"><?php echo $row['DEBIT'] ?></span>
 		</div>
 		<div class="box box3">
 			<i class="uil uil-plus-circle"></i>
-			<span class="text"><?php echo $row['CREDIT'] ?></span>
-			<span class="number">10,120</span>
-		</div>
+			<span class="text">Credit</span>
+			<span class="number"><?php echo $row['CREDIT'] ?></span>
 	</div>
 </div>

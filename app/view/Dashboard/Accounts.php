@@ -1,7 +1,7 @@
 
 <div class="activity">
 	<div class="title">
-		<i class="uil uil-users"></i>
+		<i class="uil uil-users-alt"></i>
 		<span class="text">Accounts</span>
 	</div>
 
@@ -33,7 +33,7 @@
 			foreach  ($Data['Rows']as $row)
 			{
 				$value = $row['SECRET'];
-				echo '<a href="' . _Root . 'Dashboard/Index/' . $value . '" class="data-list">Report ⧉</a>';
+				echo '<a href="' . _Root . 'Report/Index/' . $value . '" class="data-list">Report ⧉</a>';
 			}
 			?>
 		</div>

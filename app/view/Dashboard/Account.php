@@ -13,7 +13,7 @@ $row = isset($Data['Row']) ? $Data['Row'] : null;
 		<form method="post">
 			<div>
 				<label for="name">Name:<label>
-				<input name="name" type="text" value="<?php echo $row ? $row['TITLE'] : '' ?>" />
+				<input name="name" type="text" value="<?php echo $row ? $row['NAME'] : '' ?>" />
 			</div>
 
 			<div>

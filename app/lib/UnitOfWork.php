@@ -138,6 +138,20 @@ class UnitOfWork
 		return $output;
 	}
 
+	function selectAccountBySecret($secret)
+	{
+		$id = $this->preventInjection($secret);
+
+		$sql = <<<EOF
+			SELECT * FROM ACCOUNTS WHERE `SECRET`=$secret;
+		EOF;
+
+		$ret = $this->db->query($sql);
+		return $ret->fetchArray(SQLITE3_ASSOC);
+
+		return $output;
+	}
+
 	function insertAccount($inputs)
 	{
 		foreach ($inputs as $key => $value)

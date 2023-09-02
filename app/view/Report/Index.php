@@ -32,7 +32,7 @@ $row = isset($Data['Row']) ? $Data['Row'] : null;
 <body>
 
 	<h1>
-		گزارش کلی پروژه و حساب‌های
+		Overall Report of
 		<b>
 			<?php echo $row['NAME'] ?>
 		</b>
@@ -50,15 +50,15 @@ $row = isset($Data['Row']) ? $Data['Row'] : null;
 	<article>
 		<header class="state">
 			<h2>
-				وضعیت ساختار شکست کار
+				Work Break Structure and Progress
 			</h2>
 		</header>
 		<embed src="<?php echo $row['PROJECT_LINK'] ?>" type="">
 	</article>
 
-	<article>
+	<article style="display: none;">
 		<header>
-			<h2>وضعیت مالی و حساب‌داری</h2>
+			<h2>Financial Report</h2>
 		</header>
 		<main>
 			<table>

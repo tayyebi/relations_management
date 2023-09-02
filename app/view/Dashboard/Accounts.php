@@ -32,8 +32,8 @@
 			<?php
 			foreach  ($Data['Rows']as $row)
 			{
-				$value = $row['PROJECT_LINK'];
-				echo '<a href="' . $value . '" class="data-list">Navigate ⧉</a>';
+				$value = $row['SECRET'];
+				echo '<a href="' . _Root . 'Dashboard/Index/' . $value . '" class="data-list">Report ⧉</a>';
 			}
 			?>
 		</div>

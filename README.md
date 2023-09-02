@@ -1,6 +1,11 @@
 # Home
 
-Based on [php-mvc-blog](https://github.com/tayyebi/php-mvc-blog)
+A simple solution to double entry accounting. I personally keep track of my customers payments and my commitments using this simple tool.
+It's based on [php-mvc-blog](https://github.com/tayyebi/php-mvc-blog)
+
+# Screenshots
+
+![screenshots of double entry accounting software](screenshots.png)
 
 # Environment Setup
 

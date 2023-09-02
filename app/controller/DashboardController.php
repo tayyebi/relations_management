@@ -121,16 +121,16 @@ class DashboardController extends Controller
 		$uow = new UnitOfWork();
 
 		if (isset($_POST['delete']) && isset($_POST['id'])) {
-			$uow->deleteTransactionById($_POST['id']);
+			$uow->deleteAccountById($_POST['id']);
 		} else if (!isset($_POST['delete']) && isset($_POST['id'])) {
-			$uow->updateTransactionById([
+			$uow->updateAccountById([
 				'ID' => $_POST['id'],
 				'NAME' => $_POST['name'],
 				'SECRET' => $_POST['secret'],
 				'PROJECT_LINK' => $_POST['project']
 			]);
 		} else {
-			$uow->insertTransaction([
+			$uow->insertAccount([
 				'DATE' => $_POST['date'],
 				'NAME' => $_POST['name'],
 				'SECRET' => $_POST['secret'],

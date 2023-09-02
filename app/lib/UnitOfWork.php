@@ -143,15 +143,13 @@ class UnitOfWork
 		foreach ($inputs as $key => $value)
 			$this->preventInjection($value);
 
-		$date = $this->preventInjection($inputs['DATE']);
-		$notes = $this->preventInjection($inputs['NOTES']);
-		$credit = $this->preventInjection($inputs['CREDIT_ACCOUNT_ID']);
-		$debit = $this->preventInjection($inputs['DEBIT_ACCOUNT_ID']);
-		$amount = $this->preventInjection($inputs['AMOUNT']);
+		$name = $this->preventInjection($inputs['NAME']);
+		$project = $this->preventInjection($inputs['PROJECT_LINK']);
+		$secret = $this->preventInjection($inputs['SECRET']);
 
 		$sql = <<<EOF
-			INSERT INTO ACCOUNTS (DATE,CREDIT_ACCOUNT_ID,DEBIT_ACCOUNT_ID,NOTES,AMOUNT)
-			VALUES ('$date', '$credit', '$debit', '$notes', $amount);
+			INSERT INTO ACCOUNTS (NAME,PROJECT_LINK,SECRET)
+			VALUES ('$name', '$project', '$secret');
 		EOF;
 
 		$ret = $this->db->exec($sql);
@@ -163,9 +161,9 @@ class UnitOfWork
 	{
 
 		$id = $this->preventInjection($inputs['ID']);
-		$title = $this->preventInjection($inputs['TITLE']);
-		$body = $this->preventInjection($inputs['BODY']);
-		$date = $this->preventInjection($inputs['DATE']);
+		$name = $this->preventInjection($inputs['NAME']);
+		$project = $this->preventInjection($inputs['PROJECT_LINK']);
+		$secret = $this->preventInjection($inputs['SECRET']);
 
 		$sql = <<<EOF
 			UPDATE ACCOUNTS SET `TITLE`='$title', `DATE`='$date', `BODY`='$body'

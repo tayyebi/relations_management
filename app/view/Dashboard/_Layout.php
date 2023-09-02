@@ -71,13 +71,7 @@
     <section class="dashboard">
         <div class="top">
             <i class="uil uil-bars sidebar-toggle"></i>
-
-            <div class="search-box">
-                <i class="uil uil-search"></i>
-                <input type="text" placeholder="Search here...">
-            </div>
-            
-            <img src="images/profile.jpg" alt="">
+            <img src="https://gordarg.com/img/logo/Outline.svg" alt="">
         </div>
 
         <div class="dash-content">

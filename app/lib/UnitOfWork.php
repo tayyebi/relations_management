@@ -25,6 +25,8 @@ class UnitOfWork
 		$this->db->close();
 	}
 
+	// === TRANSACTIONS === \\\
+
 	function selectAllTransactions()
 	{
 		$sql = <<<EOF
@@ -105,6 +107,89 @@ class UnitOfWork
 		if (!$ret)
 			throw new Exception($this->db->lastErrorMsg());
 	}
+
+	// === ACCOUNTS === \\\
+	function selectAllAccounts()
+	{
+		$sql = <<<EOF
+			SELECT * FROM ACCOUNTS ORDER BY `ID` DESC;
+		EOF;
+
+		$output = [];
+
+		$ret = $this->db->query($sql);
+		while ($row = $ret->fetchArray(SQLITE3_ASSOC))
+			array_push($output, $row);
+
+		return $output;
+	}
+
+	function selectAccountById($id)
+	{
+		$id = $this->preventInjection($id);
+
+		$sql = <<<EOF
+			SELECT * FROM ACCOUNTS WHERE `ID`=$id;
+		EOF;
+
+		$ret = $this->db->query($sql);
+		return $ret->fetchArray(SQLITE3_ASSOC);
+
+		return $output;
+	}
+
+	function insertAccount($inputs)
+	{
+		foreach ($inputs as $key => $value)
+			$this->preventInjection($value);
+
+		$date = $this->preventInjection($inputs['DATE']);
+		$notes = $this->preventInjection($inputs['NOTES']);
+		$credit = $this->preventInjection($inputs['CREDIT_ACCOUNT_ID']);
+		$debit = $this->preventInjection($inputs['DEBIT_ACCOUNT_ID']);
+		$amount = $this->preventInjection($inputs['AMOUNT']);
+
+		$sql = <<<EOF
+			INSERT INTO ACCOUNTS (DATE,CREDIT_ACCOUNT_ID,DEBIT_ACCOUNT_ID,NOTES,AMOUNT)
+			VALUES ('$date', '$credit', '$debit', '$notes', $amount);
+		EOF;
+
+		$ret = $this->db->exec($sql);
+		if (!$ret)
+			throw new Exception($this->db->lastErrorMsg());
+	}
+
+	function updateAccountById($inputs)
+	{
+
+		$id = $this->preventInjection($inputs['ID']);
+		$title = $this->preventInjection($inputs['TITLE']);
+		$body = $this->preventInjection($inputs['BODY']);
+		$date = $this->preventInjection($inputs['DATE']);
+
+		$sql = <<<EOF
+			UPDATE ACCOUNTS SET `TITLE`='$title', `DATE`='$date', `BODY`='$body'
+			WHERE `ID`=$id
+		EOF;
+
+		$ret = $this->db->exec($sql);
+		if (!$ret)
+			throw new Exception($this->db->lastErrorMsg());
+	}
+
+	function deleteAccountById($id)
+	{
+		$id = $this->preventInjection($id);
+
+		$sql = <<<EOF
+			DELETE FROM ACCOUNTS WHERE `ID`=$id
+		EOF;
+
+		$ret = $this->db->exec($sql);
+		if (!$ret)
+			throw new Exception($this->db->lastErrorMsg());
+	}
+
 }
 
 ?>

@@ -65,7 +65,7 @@ body.dark .activity-data::-webkit-scrollbar-thumb:hover{
 }
 
 
-input[type=text], select, textarea {
+input[type=text], input[type=number], select, textarea {
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;

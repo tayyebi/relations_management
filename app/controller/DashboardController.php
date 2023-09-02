@@ -25,6 +25,8 @@ class DashboardController extends Controller
 		]);
 	}
 
+	// === TRANSACTIONS === \\\
+
 	function TransactionsGET()
 	{
 		$this->Auth();
@@ -48,12 +50,69 @@ class DashboardController extends Controller
 			$row = $uow->selectTransactionById($id);
 
 		$this->Render('Transaction', [
-			'Title' => _AppName . ' | Post',
+			'Title' => _AppName . ' | Transaction',
 			'Row' => $row
 		]);
 	}
 
 	function TransactionPOST()
+	{
+		$this->Auth();
+
+		$uow = new UnitOfWork();
+
+		if (isset($_POST['delete']) && isset($_POST['id'])) {
+			$uow->deleteTransactionById($_POST['id']);
+		} else if (!isset($_POST['delete']) && isset($_POST['id'])) {
+			$uow->updateTransactionById([
+				'ID' => $_POST['id'],
+				'TITLE' => $_POST['title'],
+				'BODY' => $_POST['body'],
+				'DATE' => $_POST['date']
+			]);
+		} else {
+			$uow->insertTransaction([
+				'DATE' => $_POST['date'],
+				'NOTES' => $_POST['notes'],
+				'CREDIT_ACCOUNT_ID' => $_POST['credit'],
+				'DEBIT_ACCOUNT_ID' => $_POST['debit'],
+				'AMOUNT' => $_POST['amount']
+			]);
+		}
+		$this->RedirectResponse(_Root . 'Dashboard/Transactions');
+	}
+	
+	// === ACCOUNTS === \\\
+
+	function AccountsGET()
+	{
+		$this->Auth();
+
+		$uow = new UnitOfWork();
+		$rows = $uow->selectAllAccounts();
+
+		$this->Render('Accounts', [
+			'Title' => _AppName . ' | Accounts',
+			'Rows' => $rows
+		]);
+	}
+
+	function AccountGET($id = null)
+	{
+		$this->Auth();
+		
+		$uow = new UnitOfWork();
+
+		if ($id)
+			$row = $uow->selectAccountById($id);
+
+		$this->Render('Account', [
+			'Title' => _AppName . ' | Account',
+			'Row' => $row
+		]);
+	}
+
+	function AccountPOST()
 	{
 		$this->Auth();
 

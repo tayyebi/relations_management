@@ -12,7 +12,6 @@ $row = isset($Data['Row']) ? $Data['Row'] : null;
 	<style>
 		html,
 		body,
-		article,
 		embed {
 			height: 100%;
 			width: 100%;
@@ -21,6 +20,9 @@ $row = isset($Data['Row']) ? $Data['Row'] : null;
 		}
 		aside {
 			display: none;
+		}
+		article {
+
 		}
 		h1 {
 			display: block;
@@ -41,33 +43,31 @@ $row = isset($Data['Row']) ? $Data['Row'] : null;
 	<aside>
 		<nav>
 			<ul>
-				<li>پیشرفت پروژه</li>
 				<li>حسابداری و مالی</li>
+				<li>پیشرفت پروژه</li>
 			</ul>
 		</nav>
 	</aside>
 
+	<article style="display: none;">
+		<header>
+			<h2>Balance Sheet</h2>
+		</header>
+		<main>
+			<h3>DEBIT</h3>
+			<span><?php echo $row['DEBIT'] ?></span>
+			<h3>CREDIT</h3>
+			<span><?php echo $row['CREDIT'] ?></span>
+		</main>
+	</article>
+
 	<article>
-		<header class="state">
+		<header>
 			<h2>
 				Work Break Structure and Progress
 			</h2>
 		</header>
 		<embed src="<?php echo $row['PROJECT_LINK'] ?>" type="">
-	</article>
-
-	<article style="display: none;">
-		<header>
-			<h2>Financial Report</h2>
-		</header>
-		<main>
-			<table>
-				<thead></thead>
-				<tbody></tbody>
-				<tfoot></tfoot>
-			</table>
-		</main>
-		<footer>به زودی...</footer>
 	</article>
 
 </body>

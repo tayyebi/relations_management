@@ -1,3 +1,6 @@
+<?php 
+$row = isset($Data['Row']) ? $Data['Row'] : null;
+?>
 <div class="overview">
 	<div class="title">
 		<i class="uil uil-tachometer-fast-alt"></i>
@@ -8,16 +11,16 @@
 		<div class="box box2">
 			<i class="uil uil-transaction"></i>
 			<span class="text">Transactions</span>
-			<span class="number">678</span>
+			<span class="number"><?php echo $row['CCOUNT'] ?></span>
 		</div>
 		<div class="box box1">
 			<i class="uil uil-minus-circle"></i>
-			<span class="text">Debits</span>
+			<span class="text"><?php echo $row['DEBIT'] ?></span>
 			<span class="number">5,000</span>
 		</div>
 		<div class="box box3">
 			<i class="uil uil-plus-circle"></i>
-			<span class="text">Credits</span>
+			<span class="text"><?php echo $row['CREDIT'] ?></span>
 			<span class="number">10,120</span>
 		</div>
 	</div>

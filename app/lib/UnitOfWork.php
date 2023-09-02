@@ -27,6 +27,21 @@ class UnitOfWork
 
 	// === TRANSACTIONS === \\\
 
+	function overallReport()
+	{
+		$sql = <<<EOF
+				SELECT
+				(SELECT COUNT(*) FROM TRANSACTIONS) AS CCOUNTS,
+				(SELECT SUM(AMOUNT) FROM TRANSACTIONS) AS DEBIT,
+				(SELECT SUM(AMOUNT) FROM TRANSACTIONS) AS CREDIT;
+			EOF;
+
+		$ret = $this->db->query($sql);
+		return $ret->fetchArray(SQLITE3_ASSOC);
+
+		return $output;
+	}
+
 	function selectAllTransactions()
 	{
 		$sql = <<<EOF

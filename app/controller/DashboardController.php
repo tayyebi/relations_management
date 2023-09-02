@@ -19,9 +19,13 @@ class DashboardController extends Controller
 
 	function IndexGET()
 	{
+		$uow = new UnitOfWork();
+		$row = $uow->overallReport();
+
 		$this->Auth();
 		$this->Render('Index', [
-			'Title' => _AppName . ' | Dashboard'
+			'Title' => _AppName . ' | Dashboard',
+			'Row' => $row
 		]);
 	}
 

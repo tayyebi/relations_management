@@ -19,8 +19,13 @@ $row = isset($Data['Row']) ? $Data['Row'] : null;
 			padding: 0;
 			margin: 0;
 		}
-
-		.state {}
+		aside {
+			display: none;
+		}
+		h1 {
+			display: block;
+			text-align: center;
+		}
 	</style>
 </head>
 
@@ -40,20 +45,7 @@ $row = isset($Data['Row']) ? $Data['Row'] : null;
 				<li>حسابداری و مالی</li>
 			</ul>
 		</nav>
-
 	</aside>
-
-	<article>
-		<header>وضعیت مالی و حساب‌داری</header>
-		<main>
-			<table>
-				<thead></thead>
-				<tbody></tbody>
-				<tfoot></tfoot>
-			</table>
-		</main>
-		<footer>به زودی...</footer>
-	</article>
 
 	<article>
 		<header class="state">
@@ -62,6 +54,20 @@ $row = isset($Data['Row']) ? $Data['Row'] : null;
 			</h2>
 		</header>
 		<embed src="<?php echo $row['PROJECT_LINK'] ?>" type="">
+	</article>
+
+	<article>
+		<header>
+			<h2>وضعیت مالی و حساب‌داری</h2>
+		</header>
+		<main>
+			<table>
+				<thead></thead>
+				<tbody></tbody>
+				<tfoot></tfoot>
+			</table>
+		</main>
+		<footer>به زودی...</footer>
 	</article>
 
 </body>

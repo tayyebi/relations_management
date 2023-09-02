@@ -136,7 +136,7 @@ class DashboardController extends Controller
 				'PROJECT_LINK' => $_POST['project']
 			]);
 		}
-		$this->RedirectResponse(_Root . 'Dashboard/Transactions');
+		$this->RedirectResponse(_Root . 'Dashboard/Accounts');
 	}
 
 	function LogoutGET()

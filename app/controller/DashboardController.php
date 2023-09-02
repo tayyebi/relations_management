@@ -33,13 +33,9 @@ class DashboardController extends Controller
 
 		$uow = new UnitOfWork();
 		$rows = $uow->selectAllTransactions();
-
-		$accnts = $uow->selectAllAccounts();
-
 		$this->Render('Transactions', [
 			'Title' => _AppName . ' | Transaction',
-			'Rows' => $rows,
-			'Accounts' => $accnts
+			'Rows' => $rows
 		]);
 	}
 
@@ -52,9 +48,12 @@ class DashboardController extends Controller
 		if ($id)
 			$row = $uow->selectTransactionById($id);
 
+		$accnts = $uow->selectAllAccounts();
+
 		$this->Render('Transaction', [
 			'Title' => _AppName . ' | Transaction',
-			'Row' => $row
+			'Row' => $row,
+			'Accounts' => $accnts
 		]);
 	}
 

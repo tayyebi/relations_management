@@ -23,7 +23,7 @@
         <div class="menu-items">
             <ul class="nav-links">
                 <li><a href="<?php echo _Root ?>Dashboard">
-                    <i class="uil uil-estate"></i>
+                    <i class="uil uil-dashboard"></i>
                     <span class="link-name">Dashboard</span>
                 </a></li>
 

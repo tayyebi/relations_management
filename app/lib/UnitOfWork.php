@@ -54,18 +54,20 @@ class UnitOfWork
 		return $output;
 	}
 
-	function insertTransactions($inputs)
+	function insertTransaction($inputs)
 	{
 		foreach ($inputs as $key => $value)
 			$this->preventInjection($value);
 
-		$title = $this->preventInjection($inputs['TITLE']);
-		$body = $this->preventInjection($inputs['BODY']);
 		$date = $this->preventInjection($inputs['DATE']);
+		$notes = $this->preventInjection($inputs['NOTES']);
+		$credit = $this->preventInjection($inputs['CREDIT_ACCOUNT_ID']);
+		$debit = $this->preventInjection($inputs['DEBIT_ACCOUNT_ID']);
+		$amount = $this->preventInjection($inputs['AMOUNT']);
 
 		$sql = <<<EOF
-			INSERT INTO TRANSACTIONS (TITLE,DATE,BODY)
-			VALUES ('$title', '$date', '$body');
+			INSERT INTO TRANSACTIONS (DATE,CREDIT_ACCOUNT_ID,DEBIT_ACCOUNT_ID,NOTES,AMOUNT)
+			VALUES ('$date', '$credit', '$debit', '$notes', $amount);
 		EOF;
 
 		$ret = $this->db->exec($sql);

@@ -6,19 +6,29 @@ $row = isset($Data['Row']) ? $Data['Row'] : null;
 <div class="activity">
 	<div class="title">
 		<i class="uil uil-paragraph"></i>
-		<span class="text">Amazing Content</span>
+		<span class="text">New Transaction</span>
 	</div>
 
 	<div class="activity-data">
 		<form method="post">
 			<div>
-				<label for="title">Title:<label>
-				<input name="title" type="text" value="<?php echo $row ? $row['TITLE'] : '' ?>" />
+				<label for="amount">Amount<label>
+				<input name="amount" type="text" value="<?php echo $row ? $row['AMOUNT'] : '' ?>" />
 			</div>
 
 			<div>
-				<label for="body">Body:</label>
-				<textarea name="body"><?php echo $row ? $row['BODY'] : '' ?></textarea>
+				<label for="debit">Debit Account<label>
+				<input name="debit" type="text" value="<?php echo $row ? $row['DEBTI_ACCOUNT_ID'] : '' ?>" />
+			</div>
+
+			<div>
+				<label for="credit">Credit Account</label>
+				<textarea name="credit"><?php echo $row ? $row['CREDIT_ACCOUNT_ID'] : '' ?></textarea>
+			</div>
+
+			<div>
+				<label for="notes">Notes</label>
+				<textarea name="notes"><?php echo $row ? $row['NOTES'] : '' ?></textarea>
 			</div>
 
 			<input type="hidden" name="date" value="<?php echo date('Y-m-d') ?>" />

@@ -75,9 +75,11 @@ class DashboardController extends Controller
 			]);
 		} else {
 			$uow->insertTransaction([
-				'TITLE' => $_POST['title'],
-				'BODY' => $_POST['body'],
-				'DATE' => $_POST['date']
+				'DATE' => $_POST['date'],
+				'NOTES' => $_POST['notes'],
+				'CREDIT_ACCOUNT_ID' => $_POST['credit'],
+				'DEBIT_ACCOUNT_ID' => $_POST['debit'],
+				'AMOUNT' => $_POST['amount']
 			]);
 		}
 		$this->RedirectResponse(_Root . 'Dashboard/Transactions');

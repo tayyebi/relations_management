@@ -21,7 +21,7 @@ $row = isset($Data['Row']) ? $Data['Row'] : null;
 				<label for="debit">Debit Account<label>
 						<select name="debit">
 							<?php foreach ($Data['Accounts'] as $acc) { ?>
-								<option value="<?php echo $acc['ID'] ?>" <?php echo $row['CREDIT_ACCOUNT_ID'] == $acc['ID'] ? 'selected="selected"' : '' ?>><?php echo $acc['NAME'] ?></option>
+								<option value="<?php echo $acc['ID'] ?>" <?php echo $row and $row['DEBIT_ACCOUNT_ID'] == $acc['ID'] ? 'selected="selected"' : '' ?>><?php echo $acc['NAME'] ?></option>
 							<?php } ?>
 						</select>
 			</div>
@@ -30,7 +30,7 @@ $row = isset($Data['Row']) ? $Data['Row'] : null;
 				<label for="credit">Credit Account</label>
 				<select name="credit">
 					<?php foreach ($Data['Accounts'] as $acc) { ?>
-						<option value="<?php echo $acc['ID'] ?>" <?php echo $row['CREDIT_ACCOUNT_ID'] == $acc['ID'] ? 'selected="selected"' : '' ?>><?php echo $acc['NAME'] ?></option>
+						<option value="<?php echo $acc['ID'] ?>" <?php echo $row and $row['CREDIT_ACCOUNT_ID'] == $acc['ID'] ? 'selected="selected"' : '' ?>><?php echo $acc['NAME'] ?></option>
 					<?php } ?>
 				</select>
 			</div>

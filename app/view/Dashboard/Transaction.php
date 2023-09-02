@@ -40,7 +40,11 @@ $row = isset($Data['Row']) ? $Data['Row'] : null;
 				<textarea name="notes"><?php echo $row ? $row['NOTES'] : '' ?></textarea>
 			</div>
 
-			<input type="hidden" name="date" value="<?php echo date('Y-m-d h:i:s a') ?>" />
+			<div>
+				<label for="date">Date</label>
+				<input type="text" name="date" value="<?php echo $row ? $row['DATE'] : date('Y-m-d h:i:s a') ?>">
+			</div>
+
 			<input type="submit" value="Save" />
 
 			<?php if ($row) { ?>

@@ -96,12 +96,15 @@ class UnitOfWork
 	{
 
 		$id = $this->preventInjection($inputs['ID']);
-		$title = $this->preventInjection($inputs['TITLE']);
-		$body = $this->preventInjection($inputs['BODY']);
 		$date = $this->preventInjection($inputs['DATE']);
+		$notes = $this->preventInjection($inputs['NOTES']);
+		$credit = $this->preventInjection($inputs['CREDIT_ACCOUNT_ID']);
+		$debit = $this->preventInjection($inputs['DEBIT_ACCOUNT_ID']);
+		$amount = $this->preventInjection($inputs['AMOUNT']);
 
 		$sql = <<<EOF
-			UPDATE TRANSACTIONS SET `TITLE`='$title', `DATE`='$date', `BODY`='$body'
+			UPDATE TRANSACTIONS SET `DATE`='$date', `NOTES`='$notes',
+			`CREDIT_ACCOUNT_ID`='$credit', `DEBIT_ACCOUNT_ID`='$debit', `AMOUNT`='$amount'
 			WHERE `ID`=$id
 		EOF;
 
@@ -199,7 +202,7 @@ class UnitOfWork
 		$secret = $this->preventInjection($inputs['SECRET']);
 
 		$sql = <<<EOF
-			UPDATE ACCOUNTS SET `TITLE`='$title', `DATE`='$date', `BODY`='$body'
+			UPDATE ACCOUNTS SET `NAME`='$name', `PROJECT_LINK`='$project', `SECRET`='$secret'
 			WHERE `ID`=$id
 		EOF;
 

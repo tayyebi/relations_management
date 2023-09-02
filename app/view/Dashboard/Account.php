@@ -12,16 +12,20 @@ $row = isset($Data['Row']) ? $Data['Row'] : null;
 	<div class="activity-data">
 		<form method="post">
 			<div>
-				<label for="title">Title:<label>
-				<input name="title" type="text" value="<?php echo $row ? $row['TITLE'] : '' ?>" />
+				<label for="name">Name:<label>
+				<input name="name" type="text" value="<?php echo $row ? $row['TITLE'] : '' ?>" />
 			</div>
 
 			<div>
-				<label for="body">Body:</label>
-				<textarea name="body"><?php echo $row ? $row['BODY'] : '' ?></textarea>
+				<label for="project">Project:</label>
+				<textarea name="project"><?php echo $row ? $row['PROJECT_LINK'] : '' ?></textarea>
 			</div>
 
-			<input type="hidden" name="date" value="<?php echo date('Y-m-d') ?>" />
+			<div>
+				<label for="secret">Secret:</label>
+				<textarea name="secret"><?php echo $row ? $row['SECRET'] : '' ?></textarea>
+			</div>
+			
 			<input type="submit" value="Save" />
 
 			<?php if ($row) { ?>

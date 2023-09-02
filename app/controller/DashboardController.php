@@ -3,13 +3,6 @@
 class DashboardController extends Controller
 {
 
-	public $uow;
-
-	function __construct()
-	{
-		$uow = new UnitOfWork();
-	}
-
 	function Auth()
 	{
 		if (
@@ -48,9 +41,11 @@ class DashboardController extends Controller
 	function TransactionGET($id = null)
 	{
 		$this->Auth();
+		
+		$uow = new UnitOfWork();
 
 		if ($id)
-			$row = $this->uow->selectTransactionById($id);
+			$row = $uow->selectTransactionById($id);
 
 		$this->Render('Transaction', [
 			'Title' => _AppName . ' | Post',

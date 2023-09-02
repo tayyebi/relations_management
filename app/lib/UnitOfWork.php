@@ -143,7 +143,7 @@ class UnitOfWork
 		$id = $this->preventInjection($secret);
 
 		$sql = <<<EOF
-			SELECT * FROM ACCOUNTS WHERE `SECRET`=$secret;
+			SELECT * FROM ACCOUNTS WHERE `SECRET`='$secret';
 		EOF;
 
 		$ret = $this->db->query($sql);

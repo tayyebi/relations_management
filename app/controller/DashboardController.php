@@ -66,9 +66,11 @@ class DashboardController extends Controller
 		} else if (!isset($_POST['delete']) && isset($_POST['id'])) {
 			$uow->updateTransactionById([
 				'ID' => $_POST['id'],
-				'TITLE' => $_POST['title'],
-				'BODY' => $_POST['body'],
-				'DATE' => $_POST['date']
+				'DATE' => $_POST['date'],
+				'NOTES' => $_POST['notes'],
+				'CREDIT_ACCOUNT_ID' => $_POST['credit'],
+				'DEBIT_ACCOUNT_ID' => $_POST['debit'],
+				'AMOUNT' => $_POST['amount']
 			]);
 		} else {
 			$uow->insertTransaction([
@@ -123,17 +125,16 @@ class DashboardController extends Controller
 		} else if (!isset($_POST['delete']) && isset($_POST['id'])) {
 			$uow->updateTransactionById([
 				'ID' => $_POST['id'],
-				'TITLE' => $_POST['title'],
-				'BODY' => $_POST['body'],
-				'DATE' => $_POST['date']
+				'NAME' => $_POST['name'],
+				'SECRET' => $_POST['secret'],
+				'PROJECT_LINK' => $_POST['project']
 			]);
 		} else {
 			$uow->insertTransaction([
 				'DATE' => $_POST['date'],
-				'NOTES' => $_POST['notes'],
-				'CREDIT_ACCOUNT_ID' => $_POST['credit'],
-				'DEBIT_ACCOUNT_ID' => $_POST['debit'],
-				'AMOUNT' => $_POST['amount']
+				'NAME' => $_POST['name'],
+				'SECRET' => $_POST['secret'],
+				'PROJECT_LINK' => $_POST['project']
 			]);
 		}
 		$this->RedirectResponse(_Root . 'Dashboard/Transactions');

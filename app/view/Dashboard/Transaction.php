@@ -5,7 +5,7 @@ $row = isset($Data['Row']) ? $Data['Row'] : null;
 
 <div class="activity">
 	<div class="title">
-		<i class="uil uil-paragraph"></i>
+		<i class="uil uil-transaction"></i>
 		<span class="text">New Transaction</span>
 	</div>
 

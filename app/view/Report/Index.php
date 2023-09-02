@@ -10,6 +10,6 @@ $row = isset($Data['Row']) ? $Data['Row'] : null;
 	<title>Report</title>
 </head>
 <body>
-	<embed src="<?php echo $row['PROJECT_LINK'] ?>" type="">
+	<embed width="100%" height="100%" src="<?php echo $row['PROJECT_LINK'] ?>" type="">
 </body>
 </html>

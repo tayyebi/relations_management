@@ -13,17 +13,26 @@ $row = isset($Data['Row']) ? $Data['Row'] : null;
 		<form method="post">
 			<div>
 				<label for="amount">Amount<label>
-				<input name="amount" type="number" min="0" step=".01" value="<?php echo $row ? $row['AMOUNT'] : '' ?>" />
+						<input name="amount" type="number" min="0" step=".01"
+							value="<?php echo $row ? $row['AMOUNT'] : '' ?>" />
 			</div>
 
 			<div>
 				<label for="debit">Debit Account<label>
-				<input name="debit" type="text" value="<?php echo $row ? $row['DEBIT_ACCOUNT_ID'] : '' ?>" />
+						<select name="debit">
+							<?php foreach ($Data['Accounts'] as $acc) { ?>
+								<option value="<?php echo $acc['ID'] ?>" <?php echo $row['CREDIT_ACCOUNT_ID'] == $acc['ID'] ? 'selected="selected"' : '' ?>><?php echo $acc['NAME'] ?></option>
+							<?php } ?>
+						</select>
 			</div>
 
 			<div>
 				<label for="credit">Credit Account</label>
-				<input name="credit" type="text" value="<?php echo $row ? $row['CREDIT_ACCOUNT_ID'] : '' ?>" />
+				<select name="credit">
+					<?php foreach ($Data['Accounts'] as $acc) { ?>
+						<option value="<?php echo $acc['ID'] ?>" <?php echo $row['CREDIT_ACCOUNT_ID'] == $acc['ID'] ? 'selected="selected"' : '' ?>><?php echo $acc['NAME'] ?></option>
+					<?php } ?>
+				</select>
 			</div>
 
 			<div>
@@ -31,12 +40,12 @@ $row = isset($Data['Row']) ? $Data['Row'] : null;
 				<textarea name="notes"><?php echo $row ? $row['NOTES'] : '' ?></textarea>
 			</div>
 
-			<input type="hidden" name="date" value="<?php echo date('Y-m-d') ?>" />
+			<input type="hidden" name="date" value="<?php echo date('Y-m-d h:i:s a') ?>" />
 			<input type="submit" value="Save" />
 
 			<?php if ($row) { ?>
-			<input type="hidden" name="id" value="<?php echo $row['ID'] ?>" />
-			<input type="submit" name="delete" value="Delete" />
+				<input type="hidden" name="id" value="<?php echo $row['ID'] ?>" />
+				<input type="submit" name="delete" value="Delete" />
 			<?php } ?>
 		</form>
 	</div>

@@ -34,9 +34,12 @@ class DashboardController extends Controller
 		$uow = new UnitOfWork();
 		$rows = $uow->selectAllTransactions();
 
+		$accnts = $uow->selectAllAccounts();
+
 		$this->Render('Transactions', [
 			'Title' => _AppName . ' | Transaction',
-			'Rows' => $rows
+			'Rows' => $rows,
+			'Accounts' => $accnts
 		]);
 	}
 

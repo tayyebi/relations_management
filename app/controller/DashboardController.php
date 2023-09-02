@@ -131,7 +131,6 @@ class DashboardController extends Controller
 			]);
 		} else {
 			$uow->insertAccount([
-				'DATE' => $_POST['date'],
 				'NAME' => $_POST['name'],
 				'SECRET' => $_POST['secret'],
 				'PROJECT_LINK' => $_POST['project']

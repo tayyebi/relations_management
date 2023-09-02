@@ -17,3 +17,10 @@ sudo apt-get install php7.2-xml
 ```
 docker-compose up -d
 ```
+
+# Permissions
+```
+find . -type d -exec sudo chmod 755 {} \;
+find . -type f -exec sudo chmod 644 {} \;
+sudo chown www-data:www-data -R database/ ;
+```

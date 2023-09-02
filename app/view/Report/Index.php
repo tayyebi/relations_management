@@ -24,6 +24,9 @@ $row = isset($Data['Row']) ? $Data['Row'] : null;
 		article {
 
 		}
+		article.wbs {
+			height: 100%;
+		}
 		h1 {
 			display: block;
 			text-align: center;
@@ -49,7 +52,7 @@ $row = isset($Data['Row']) ? $Data['Row'] : null;
 		</nav>
 	</aside>
 
-	<article style="display: none;">
+	<article>
 		<header>
 			<h2>Balance Sheet</h2>
 		</header>
@@ -61,7 +64,7 @@ $row = isset($Data['Row']) ? $Data['Row'] : null;
 		</main>
 	</article>
 
-	<article>
+	<article class="wbs">
 		<header>
 			<h2>
 				Work Break Structure and Progress

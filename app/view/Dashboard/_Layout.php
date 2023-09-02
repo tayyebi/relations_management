@@ -71,7 +71,7 @@
     <section class="dashboard">
         <div class="top">
             <i class="uil uil-bars sidebar-toggle"></i>
-            <img src="https://gordarg.com/img/logo/Outline.svg" alt="">
+            <img src="https://raw.githubusercontent.com/tayyebi/tayyebi.github.io/archive/img/logo.gif" alt="">
         </div>
 
         <div class="dash-content">

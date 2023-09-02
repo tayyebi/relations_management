@@ -1,8 +1,8 @@
 
 <div class="activity">
 	<div class="title">
-		<i class="uil uil-clock-three"></i>
-		<span class="text">Recent Content</span>
+		<i class="uil uil-users"></i>
+		<span class="text">Accounts</span>
 	</div>
 
 	<div class="activity-data">
